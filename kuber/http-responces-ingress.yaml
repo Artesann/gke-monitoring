@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: http-responces
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: http-responces
+            port:
+              number: 8080

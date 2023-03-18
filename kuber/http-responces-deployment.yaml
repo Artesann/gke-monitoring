@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: http-responces
+  name: http-responces
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: http-responces
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: http-responces
+    spec:
+      containers:
+      - image: gcr.io/prismatic-crow-350413/http-codes:1.0.0
+        name: http-codes
+        resources: {}
+status: {}
