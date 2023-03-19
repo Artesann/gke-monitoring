@@ -1,9 +1,7 @@
 from flask import Flask
 from flask import Response
-from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
-metrics = PrometheusMetrics(app)
 
 @app.route("/100", methods = ['GET'])
 def responce100():
@@ -25,5 +23,4 @@ def responce400():
 def responce500():
     return Response("responce code 500", status=500, mimetype='application/json')
 
-metrics.start_http_server(9000)
 app.run(port = 8080, host = '0.0.0.0', debug=True)

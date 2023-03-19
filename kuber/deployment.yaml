@@ -18,7 +18,10 @@ spec:
         app: http-responces
     spec:
       containers:
-      - image: gcr.io/prismatic-crow-350413/http-codes:1.0.0
+      - image: gcr.io/prismatic-crow-350413/http-codes:1.1.0
         name: http-codes
-        resources: {}
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
 status: {}
